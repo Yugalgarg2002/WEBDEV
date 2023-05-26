@@ -12,13 +12,25 @@ const Statistics = (props) => {
     }
     return(
         <>
-        <p>{props.text[0]}: {props.value[0]}</p>
-        <p>{props.text[1]}: {props.value[1]}</p>
-        <p>{props.text[2]}: {props.value[2]}</p>
-        <p>{props.text[3]}: {props.value[3]}</p>
-        <p>{props.text[4]}: {props.value[4]}</p>
-        <p>{props.text[5]}: {props.value[5]}</p>
+        <StatisticsLine text = {props.text[0]} value = {props.value[0]}/>
+        <StatisticsLine text = {props.text[1]} value = {props.value[1]}/>
+        <StatisticsLine text = {props.text[2]} value = {props.value[2]}/>
+        <StatisticsLine text = {props.text[3]} value = {props.value[3]}/>
+        <StatisticsLine text = {props.text[4]} value = {props.value[4]}/>
+        <StatisticsLine text = {props.text[5]} value = {props.value[5]}/>
         </>
+    )
+}
+
+const StatisticsLine = (props) => {
+    return (
+        <p>{props.text}: {props.value}</p>
+    )
+}
+
+const Button = (props) => {
+    return (
+        <button onClick={props.handleElement}>{props.text}</button>
     )
 }
 
@@ -62,9 +74,9 @@ const App = () => {
     return (
         <>
         <Header text='Give Feedback' />
-        <button onClick={handleGood}>Good</button>
-        <button onClick={handleNeutral}>Neutral</button>
-        <button onClick={handleBad}>Bad</button>
+        <Button handleElement={handleGood} text='Good'/>
+        <Button handleElement={handleNeutral} text='Neutral'/>
+        <Button handleElement={handleBad} text='Bad'/>
         <Header text='Statistics' />
         <Statistics text={['Good', 'Bad', 'Neutral', 'All', 'Positive', 'Average']} value={[good, bad, neutral, total, positive, average]} />
         </>
