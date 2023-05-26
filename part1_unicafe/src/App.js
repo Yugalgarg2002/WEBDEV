@@ -11,20 +11,23 @@ const Statistics = (props) => {
         )
     }
     return(
-        <>
+        <table>
         <StatisticsLine text = {props.text[0]} value = {props.value[0]}/>
         <StatisticsLine text = {props.text[1]} value = {props.value[1]}/>
         <StatisticsLine text = {props.text[2]} value = {props.value[2]}/>
         <StatisticsLine text = {props.text[3]} value = {props.value[3]}/>
         <StatisticsLine text = {props.text[4]} value = {props.value[4]}/>
         <StatisticsLine text = {props.text[5]} value = {props.value[5]}/>
-        </>
+        </table>
     )
 }
 
 const StatisticsLine = (props) => {
     return (
-        <p>{props.text}: {props.value}</p>
+        <tr>
+        <td>{props.text}</td>
+        <td>{props.value}</td>
+        </tr>
     )
 }
 
